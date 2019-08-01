@@ -41,7 +41,6 @@ class main:
         #Convert the coordinates suitable for 2d array
         x = (self.pos[0]//self.GUI.SQ_DIM)
         y = (self.pos[1]//self.GUI.SQ_DIM)
-        print(y,x)
         #changes of player
         if self.crnt_player == "White":
             self.crnt_side = self.pieces.white_pieces
@@ -295,7 +294,6 @@ class GUI:
         Ycounter = False
         sqcounter = False
         #Draw the board
-        print("GUI update")
         for i in range(0,8):
             for j in range(0,8):
                 pg.draw.rect(self.window, self.sq_colour[i][j],(X,Y,self.SQ_DIM,self.SQ_DIM),0)
@@ -438,7 +436,6 @@ class calc:
         elif self.checking == True:
             self.crnt_InCheck = False
             if self.KingPos in self.moves:
-                print("King in Check")
                 self.crnt_InCheck = True
 
     def Pawn_Moves(self,y,x):
@@ -540,9 +537,6 @@ class calc:
 
     def win(self,y,x):
         if [y,x] == self.OppKingPos:
-            print("GAME OVER")
-            self.winner = (self.main.crnt_player+" wins") 
-            print(self.winner)
             self.main.UpdateWinner()
 #Initialising objects
 main = main()
