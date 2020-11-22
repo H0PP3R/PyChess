@@ -333,7 +333,7 @@ class GUI:
         self.window.fill(self.WHITE)
         self.label = self.buttonfont.render(winner,1,self.BLACK)
         self.window.blit(self.label,(0,0))
-        self.window.blit(self.party,(self.WINDOW_WIDTH/2,self.WINDOW_HEIGHT/2))
+        self.window.blit(pg.transform.scale(self.party, (self.WINDOW_WIDTH, self.WINDOW_HEIGHT)),(0,20))
         pg.display.flip()
 
     def Death_Animation(self,y,x):
@@ -537,6 +537,9 @@ class calc:
 
     def win(self,y,x):
         if [y,x] == self.OppKingPos:
+            print("GAME OVER")
+            self.winner = (self.main.crnt_player+" wins") 
+            print(self.winner)
             self.main.UpdateWinner()
 #Initialising objects
 main = main()
